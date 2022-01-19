@@ -5,7 +5,7 @@ const AboutScreen = ({route}) => {
     const {email} = route.params;
     return (
         <View style={styles.container}>
-            <Text>เกี่ยวกับเรา</Text>
+            <Text>เกี่ยวกับ</Text>
             <Text>Email:{email}</Text>
             
         </View>
