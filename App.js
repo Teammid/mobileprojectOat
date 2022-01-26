@@ -1,35 +1,36 @@
-import React from 'react';
-import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
-import HomeScreen from './Screen/HomeScreen'; 
-import AboutScreen from './Screen/AboutScreen';
 
-const Stack = createStackNavigator();
+import React from 'react';
+import {NavigationContainer} from '@react-navigation/native';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import FirstPage from './Pages/FirstPage';
+import SecondPage from './Pages/SecondPage'
+import ThirdPage from './Pages/ThirdPage'
+
+const Stack = createNativeStackNavigator ();
 
 const App = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator
-        initialRouteName="Home"
-        screenOptions={{
-          headerStyle: {
-            backgroundColor: '#C3B1E1',
-          },
-          headerTintColor: '#fff',
-          headerTitleStyle: {
-            fontWeight: 'bold',
-          },
-        }}>
+      initialRouteName = "FirstPage"
+      screenOptions = {{
+        headerStyle : {backgroundColor : '#5f9ea0'},
+        headerTintColor : '#fff',
+        headerTitleStyle : {fontWeight : 'bold'}
+      }}
+      >
         <Stack.Screen
-          name="Home"
-          component={HomeScreen}
-          options={{title: 'Home Page'}}
+          name='FirstPage'
+          component = {FirstPage}
+          options={{title:'First Page'}}
         />
-
         <Stack.Screen
-          name="About"
-          component={AboutScreen}
-          options={{title: 'About Us'}}
+          name='SecondPage'
+          component ={SecondPage}
+        />
+        <Stack.Screen
+          name='ThirdPage'
+          component = {ThirdPage}
         />
       </Stack.Navigator>
     </NavigationContainer>
@@ -37,3 +38,4 @@ const App = () => {
 };
 
 export default App;
+
