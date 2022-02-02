@@ -20,7 +20,7 @@ const SetingScreen = ({ navigation }) => {
         title="Open News Screen"
         //onPress={() => navigation.navigate('')}
       />
-      <Button
+      <Button 
         title="Open Profile Screen"
         onPress={() => navigation.navigate('ProfileScreen')}
       />

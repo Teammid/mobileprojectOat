@@ -29,7 +29,7 @@ function SettingsScreenPage() {
     <Stack.Navigator screenOptions={{
         headerStyle: {backgroundColor: '#f45'},
         headerTintColor: '#FFFF',
-        headerTitleStyle: {fontWeight: 'bold'},
+        headerTitleStyle: {fontWeight: 'bold'}, 
       }}>
       <Stack.Screen name="SettingScreen" component={SettingScreen} />
       <Stack.Screen name="ProfileScreen" component={ProfileScreen} />

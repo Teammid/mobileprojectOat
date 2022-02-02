@@ -18,7 +18,7 @@ const HomeScreen = ({ navigation }) => {
         onPress={() => navigation.navigate('SettingScreen')}/>
       <Button
         title="Open News Screen"
-        //onPress={() => navigation.navigate('About')}
+        //onPress={() => navigation.navigate('About')} 
       />
     </View>
   );

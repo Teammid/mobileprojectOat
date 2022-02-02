@@ -7,6 +7,6 @@ const ProfileScreen = () => {
       <Text style={{fontSize: 18, fontWeight: 'bold', }}>Profile Screen</Text>
     </View>
   );
-};
+}; 
 export default ProfileScreen;
 
