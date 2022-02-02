@@ -1,39 +1,86 @@
-import React from 'react';
+import * as React from 'react';
+import { Text, View, Image } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
-import HomeScreen from './Screen/HomeScreen'; 
-import AboutScreen from './Screen/AboutScreen';
+import Ionicons from 'react-native-vector-icons/Ionicons';
+import HomeScreen from './Screen/HomeScreen';
+import SettingScreen from './Screen/SettingScreen';
+import ProfileScreen from './Screen/ProfileScreen';
 
 const Stack = createStackNavigator();
 
-const App = () => {
+function HomeScreenPage() {
+  return (
+    <Stack.Navigator
+      initialRouteName="HomeScreen"
+      screenOptions={{
+        headerStyle: {backgroundColor: '#f45'},
+        headerTintColor: '#FFFF',
+        headerTitleStyle: {fontWeight: 'bold'},
+      }}>
+      <Stack.Screen name="HomeScreen" component={HomeScreen} />
+    </Stack.Navigator>
+  );
+}
+
+function SettingsScreenPage() {
+  return (
+    <Stack.Navigator screenOptions={{
+        headerStyle: {backgroundColor: '#f45'},
+        headerTintColor: '#FFFF',
+        headerTitleStyle: {fontWeight: 'bold'},
+      }}>
+      <Stack.Screen name="SettingScreen" component={SettingScreen} />
+      <Stack.Screen name="ProfileScreen" component={ProfileScreen} />
+    </Stack.Navigator>
+  );
+}
+
+const Tab = createBottomTabNavigator();
+
+export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator
-        initialRouteName="Home"
-        screenOptions={{
-          headerStyle: {
-            backgroundColor: '#C3B1E1',
+      <Tab.Navigator
+        screenOptions={({ route }) => ({
+          tabBarIcon: ({ focused, color }) => {
+            let iconName;
+            if (route.name === 'Home') {
+              iconName = focused ? (
+                <Image
+                  source={require('./asset/logo1.png')}
+                  style={{ width: 25, height: 25, marginLeft: 5 }}
+                />
+              ) : (
+                <Image
+                  source={require('./asset/logo2.png')}
+                  style={{ width: 25, height: 25, marginLeft: 5 }}
+                />
+              );
+            } else if (route.name === 'SettingScreen') {
+              iconName = focused ? (
+                <Image
+                  source={require('./asset/logo1.png')}
+                  style={{ width: 25, height: 25, marginLeft: 5 }}
+                />
+              ) : (
+                <Image
+                  source={require('./asset/logo3.png')}
+                  style={{ width: 25, height: 25, marginLeft: 5 }}
+                />
+              );
+            }
+            return iconName;
           },
-          headerTintColor: '#fff',
-          headerTitleStyle: {
-            fontWeight: 'bold',
-          },
+        })}
+        tabBarOptions={{
+          activeTintColor: 'tomato',
+          inactiveTintColor: 'gray',
         }}>
-        <Stack.Screen
-          name="Home"
-          component={HomeScreen}
-          options={{title: 'Home Page'}}
-        />
-
-        <Stack.Screen
-          name="About"
-          component={AboutScreen}
-          options={{title: 'About Us'}}
-        />
-      </Stack.Navigator>
+        <Tab.Screen name="Home" component={HomeScreenPage} />
+        <Tab.Screen name="SettingScreen" component={SettingsScreenPage} />
+      </Tab.Navigator>
     </NavigationContainer>
   );
-};
-
-export default App;
+}

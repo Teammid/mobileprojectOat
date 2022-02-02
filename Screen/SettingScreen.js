@@ -9,22 +9,26 @@ import {
   OverflowMenu,
 } from 'react-navigation-header-buttons';
 
-const HomeScreen = ({ navigation }) => {
+const SetingScreen = ({ navigation }) => {
   return (
     <View style={styles.container}>
-      <Text style= {{fontSize: 30,  margin: 10}}> HomeScreen </Text>
+      <Text style= {{fontSize: 30,  margin: 10}}> Setting Screen </Text>
       <Button
-        title="Go to Setting Tab"
-        onPress={() => navigation.navigate('SettingScreen')}/>
+        title="Go to Home Tab"
+        onPress={() => navigation.navigate('HomeScreen')}></Button>
       <Button
         title="Open News Screen"
-        //onPress={() => navigation.navigate('About')}
+        //onPress={() => navigation.navigate('')}
+      />
+      <Button
+        title="Open Profile Screen"
+        onPress={() => navigation.navigate('ProfileScreen')}
       />
     </View>
   );
 };
 
-export default HomeScreen;
+export default SetingScreen;
 
 const styles = StyleSheet.create({
   container: {
